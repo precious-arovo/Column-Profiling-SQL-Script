@@ -22,15 +22,13 @@ It returns a unified result sorted by data type and column name.
 ## 🎁 Output Columns
 | Column Name | Data Type | Max Number | Max Length | Max Date |
 |-------------|-----------|------------|------------|----------|
-|-------------|-----------|------------|------------|----------|
-
 
 With each row representing a column from the target table and it's most relevamt maximum metric.
 
 
 ## 🛠️ Usage
-Replace the following variables in the script with the desired table and schema:
+Replace the following variables in the script with the desired table name and table schema name:
 
-'''SQL
-DECLARE @TableName NVARCHAR(128) = 'YourTableName'
-DECLARE @SchemaName NVARCHAR(128) = 'YourSchemaName'
+```sql
+DECLARE @TableName NVARCHAR(128) = 'TableName'
+DECLARE @SchemaName NVARCHAR(128) = 'SchemaName'
