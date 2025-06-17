@@ -22,6 +22,8 @@ It returns a unified result sorted by data type and column name.
 ## 🎁 Output Columns
 | Column Name | Data Type | Max Number | Max Length | Max Date |
 |-------------|-----------|------------|------------|----------|
+|-------------|-----------|------------|------------|----------|
+
 
 With each row representing a column from the target table and it's most relevamt maximum metric.
 
