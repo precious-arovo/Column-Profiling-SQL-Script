@@ -1,4 +1,4 @@
-# Column-Profiling-SQL-Script
+# Column Profiling SQL Script
 This SQL script dynamically inspects all columns in a specified table to help in profiling the columns data characteristics.
 
 It extracts useful column information like:
@@ -11,7 +11,7 @@ This is useful for:
 - Schema refinement
 - Data auditing
 
-## 🔧  How It Works
+## How It Works
 The script:
 - Accepts a table name and schema name as input.
 - Queries 'information_schema.columns' to generate column profiles.
@@ -19,14 +19,14 @@ The script:
 
 It returns a unified result sorted by data type and column name.
 
-## 🎁 Output Columns
+## Output Columns
 | Column Name | Data Type | Max Number | Max Length | Max Date |
 |-------------|-----------|------------|------------|----------|
 
 With each row representing a column from the target table and it's most relevamt maximum metric.
 
 
-## 🛠️ Usage
+## Usage
 Replace the following variables in the script with the desired table name and table schema name:
 
 ```sql
