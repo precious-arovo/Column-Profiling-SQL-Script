@@ -6,8 +6,8 @@ DECLARE @SchemaName NVARCHAR(128) = ''  -- schema name
 -- Maximum value for all int data type for each column
 SELECT @SQL = @SQL + 
     'SELECT ''' + COLUMN_NAME + ''' AS COLUMN_NAME, ''' + DATA_TYPE + ''' AS DATA_TYPE, ' +
-    'MAX(CAST([' + COLUMN_NAME + '] AS BIGINT)) AS MAX_NUMBER, NULL AS MAX_LENGTH, NULL AS MAX_DATE ' +
-    'FROM ' + QUOTENAME(@SchemaName) + '.' + QUOTENAME(@TableName) +
+    'MAX(CAST(' + COLUMN_NAME + ' AS BIGINT)) AS MAX_NUMBER, NULL AS MAX_LENGTH, NULL AS MAX_DATE ' +
+    'FROM ' + @SchemaName + '.' + @TableName +
     ' UNION ALL '
 FROM INFORMATION_SCHEMA.COLUMNS
 WHERE TABLE_NAME = @TableName
@@ -18,7 +18,7 @@ WHERE TABLE_NAME = @TableName
 SELECT @SQL = @SQL + 
     'SELECT ''' + COLUMN_NAME + ''' AS COLUMN_NAME, ''' + DATA_TYPE + ''' AS DATA_TYPE, ' +
     'NULL AS MAX_NUMBER, MAX(LEN([' + COLUMN_NAME + '])) AS MAX_LENGTH, NULL AS MAX_DATE ' +
-    'FROM ' + QUOTENAME(@SchemaName) + '.' + QUOTENAME(@TableName) +
+    'FROM ' + @SchemaName + '.' + @TableName +
     ' WHERE [' + COLUMN_NAME + '] IS NOT NULL ' + 
     ' UNION ALL '
 FROM INFORMATION_SCHEMA.COLUMNS
@@ -30,7 +30,7 @@ WHERE TABLE_NAME = @TableName
 SELECT @SQL = @SQL + 
     'SELECT ''' + COLUMN_NAME + ''' AS COLUMN_NAME, ''' + DATA_TYPE + ''' AS DATA_TYPE, ' +
     'NULL AS MAX_NUMBER, NULL AS MAX_LENGTH, MAX([' + COLUMN_NAME + ']) AS MAX_DATE ' +
-    'FROM ' + QUOTENAME(@SchemaName) + '.' + QUOTENAME(@TableName) +
+    'FROM ' + @SchemaName + '.' + @TableName +
     ' UNION ALL '
 FROM INFORMATION_SCHEMA.COLUMNS
 WHERE TABLE_NAME = @TableName
